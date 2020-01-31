@@ -1,0 +1,116 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-3
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link
+              a(href="#gettingStarted") Getting Started
+          li.nav-item
+            a.nav-link
+              a(href="#usage") Usage
+          li.nav-item
+            a.nav-link
+              a(href="#roadmap") Roadmap
+          li.nav-item
+            a.nav-link
+              a(href="#contributin") Contributing
+          li.nav-item
+            a.nav-link
+              a(href="#license") License
+          li.nav-item
+            a.nav-link
+              a(href="#contact") Contact
+          li.nav-item
+            a.nav-link
+              a(href="#acknowledgements") Acknowledgements
+      .col-md-9
+        section#introduction
+          h2 About The Project
+          
+          ul.list-group.list-group-flush
+            li.list-group-item #[b Package Name:] #{title}
+            li.list-group-item #[b Version:] v-#{version}
+            li.list-group-item #[b Author:] #[a(href=author.url, title=author.name, tarhet="blank") #{author.name}]
+            li.list-group-item #[b Post an issue:]
+            li.list-group-item #[b License:]
+
+          p First of all, Thank you so much for using this library! We really apreciate it. We will keep on working to bring you more awesome features and all the documentation you need.
+          p Unizend's Node.js Localbitcoins API Client Library has been build to help you access to the localbitcoins API from your Node.js project.
+          p It provides a series of methods that hopefully will ease your development with the Localbitcoins API using Node.js.
+          p This documentation is written to help you using this tool in your project. Please go through the docs carefully to understand how this library works so you can use it with no problems.
+          p If you have made it through here, we supose you have javascript and node.js knowledge. It is a requirement to use this library.
+
+          h3 Requirements
+
+          p You will need the following:
+
+          ol
+            li Node.js. This library was develop using node v12.14.1. You can download it #[a(href="https://nodejs.org/en/", title="Node.js Download", target="_blank") here].
+            li Npm. This library was develop using node v6.13.6. It comes by default with node.js. 
+            li #[a(href="https://localbitcoins.com/register/", title="Sign up on Localbitcoins", target="_black") Localbitcoins Acoount]
+
+        section#gettingStarted
+          h2 Getting Started
+          p To get a local copy up and running follow these simple steps.
+
+          h3 Installation
+          p As simple as going to your project folder and typing the following line on your command prompt
+          pre npm i --save unizend-localbtc
+
+        section#usage
+          h2 Usage
+          p To correctly use this library, follow the next stepts:
+
+          h4 HMAC Auth key and secret
+          p First of all, you will need your HMAC Auth key and secret wich you can get from #[a(href="https://localbitcoins.com/accounts/api/", title="Get your HMAC Auth key and secret", target="_blank") here].
+          p.alert.alert-info For more information check the #[a(href="https://localbitcoins.com/api-docs/", title="Localbitcoins API Documentation", target="_black") Localbitcoins API Documentation].
+
+          h4 Require the library
+          pre const unizendLocalbtc = require('./unizend-localbitcoins')
+
+          h4 Install #[code dotenv] #[em optional].
+          p Use #[code dotenv] to use your key and secret as env vars.
+          pre npm i --save dotenv
+          p Create a #[code .env] file in the root folder and add to it your #[b key] and #[b secret].
+
+          h4 Initialize the library
+          pre unizendLocalbtc.init(YOUR_HMAC_AUTH_KEY, YOUR_HMAC_AUTH_SECRET)
+
+          p So that's it. Now you can start developing using the Localbitcoins API from your node project.
+
+        section#roadmap
+          h2 Roadmap
+
+          p We are working on adding more features to the API. Follow the repo to keep up with our updates.
+
+          p Feel free to propose features #[a(href=issuesUrl, title="Open Issue", target="_black") open issues] and also add or see known issues.
+
+        section#contributing
+          h2 Contributing
+
+          p Crypto needs adoption and the goal of this tool is to help other developers build faster! If you find any bugs / issues or have suggestions, please consider collaborating. #[b It would be greatly appreciated].
+
+        section#license
+          h2 License
+
+          p Distributed under the #{license.name} License. See #[a(href=license.url, title=license.name, target="_blank") LICENSE] for more information.
+
+        section#contact
+          h2 Contact
+
+          p Santiago Rincon / #[a(href="https://twitter.com/rincorpes", title=author.name, target="_blank") @rincorpes] - #[a(href="https://twitter.com/unizend_pay", title="Unizend at Twitter", target="_blank") @unizend_pay] - #[a(href="mailto:admin@unizend.com", title=author.name) admin@unizend.com]
+
+          p Project Link: #[a(href=repo.url, title=repo.title, target="_blank") https://github.com/rincorpes/unizend-localbtc]
+        
+        section#acknowledgements
+          h2 Acknowledgements
+
+          ul
+            li
+              a(href="https://unizend.com", title="Unizend", target="_blank") Unizend
+            li
+              a(href="https://localbitcoins.com", title="Localbitcoins", target="_blank") Localbitcoins
+

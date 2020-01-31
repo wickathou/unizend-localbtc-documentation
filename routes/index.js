@@ -28,7 +28,8 @@ router.get('/', function(req, res, next) {
     license: {
       name: unizendLocalbtcPJson.license,
       url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    }
+    },
+    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
   });
 });
 
