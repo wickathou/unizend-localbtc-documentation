@@ -1,0 +1,32 @@
+{
+  "name": "unizend-localbtc-documentation",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "css-prefix": "postcss --config postcss.config.js --replace \"public/stylesheets/*.css\" \"public/stylesheets/!*.min.css\"",
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/main.scss public/stylesheets/style.css",
+    "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output public/stylesheets/style.min.css public/stylesheets/style.css",
+    "build-css": "npm run css-compile && npm run css-prefix && npm run css-minify",
+    "dev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jquery": "^3.4.1",
+    "morgan": "~1.9.1",
+    "popper.js": "^1.16.1",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
+    "postcss-cli": "^7.1.0"
+  }
+}
