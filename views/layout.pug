@@ -17,10 +17,40 @@ html(lang="en")
     link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css")
     link(rel='stylesheet', href='/stylesheets/style.min.css')
   body
-    header Header
+    header
+      nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        .container
+          a.navbar-brand(href="/", title=title) #{title}
+          button.navbar-toggler(type="button", data-toggle="collapse", data-target="#mainNavbar", aria-controls="mainNavbar", aria-expanded="false", aria-label="Toggle Navigation")
+            span.navbar-toggler-icon
+          #mainNavbar.collapse.navbar-collapse
+            ul.navbar-nav.ml-auto
+              li.nav-item
+                a.nav-link(href=repo.url, title=repo.title, target="_blank")
+                  i.fab.fa-github
+              li.nav-item
+                a.nav-link(href=package.url, title=package.title, target="_blank")
+                  i.fab.fa-npm
+      .container
+        .row
+          .col-md-12.text-center
+            h1 #{headings.main}
+            p.lead #{headings.secondary}
+
     main
       block content
-    footer Footer
+
+    footer.border-top
+      .container
+        ul.nav
+          li.nav-item
+            a.nav-link(href=repo.url, title=repo.title, target="_blank").
+              Github
+          li.nav-item
+            a.nav-link(href=package.url, title=package.title, target="_blank").
+              Npnjs
+        p Developed by the #[a(href="https://unizend.com", title="Unizend Website", target="_blank") Unizend Team.]
+        p Currently v#{version}. Code licensed #[a(href=license.url, title=license.name, target="blank") license.name.]
 
     script(src="https://code.jquery.com/jquery-3.4.1.min.js", integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/esm/popper.min.js", integrity="sha256-3Iu0zFU6cPS92RSC3Pe4DBwjIV/9XKyzYTqKZzly6A8=", crossorigin="anonymous")
