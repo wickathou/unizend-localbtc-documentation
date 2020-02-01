@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .container-fluid
+    .row
+      .col-md-3
+        #acordionNav.acordion
+          .w-100
+            a.btn.btn-link(data-toggle="collapse",data-target="#collapseOne",aria-expanded="true",aria-controls="collapseOne") Getting Started
+          ul#collapseOne.list-unstyled.collapse.show(aria-labelledby="headingOne",data-parent="#acordionNav")
+            li
+              a.nav-link(href="/docs/getting-started/introduction") Introduction
+            li
+              a.nav-link(href="/docs/getting-started/installation") Installation
+            li
+              a.nav-link(href="/docs/getting-started/usage") Usage
+          .w-100
+            a.btn.btn-link(data-toggle="collapse",data-target="#collapseTwo",aria-expanded="true",aria-controls="collapseTwo") API Reference
+          ul#collapseTwo.list-unstyled.collapse(aria-labelledby="headingTwo",data-parent="#acordionNav")
+            li
+              a.nav-link(href="#") unizendLocalbtc.publicMarketData
+            li
+              a.nav-link(href="#") unizendLocalbtc.localbitcoins
+            li
+              a.nav-link(href="#") unizendLocalbtc.ads
+            li
+              a.nav-link(href="#") unizendLocalbtc.trades
+            li
+              a.nav-link(href="#") unizendLocalbtc.account
+            li
+              a.nav-link(href="#") unizendLocalbtc.wallet
+          .w-100
+            a.btn.btn-link(data-toggle="collapse",data-target="#collapseThree",aria-expanded="true",aria-controls="collapseThree") About
+          ul#collapseThree.list-unstyled.collapse(aria-labelledby="headingThree",data-parent="#acordionNav")
+            li
+              a.nav-link(href="#") Overview
+            li
+              a.nav-link(href="#") Team
+
+      block primary
