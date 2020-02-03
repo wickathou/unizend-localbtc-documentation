@@ -1,4 +1,15 @@
 $enable-responsive-font-sizes: true !default;
 $enable-gradients: true !default;
 
+$theme-colors: (
+	"primary": #3AAFA9,
+	"secondary": #8CA486,
+	"info": #232f3f,
+	"success": #48af6c,
+	"warning": #c59f34,
+	"danger": #f44336,
+	"dark": #232F3F,
+	"light": #EEF5F0
+);
+
 @import '../node_modules/bootstrap/scss/bootstrap';

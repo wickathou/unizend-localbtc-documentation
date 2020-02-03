@@ -3,40 +3,40 @@ extends layout
 block content
   .container
     .row
-      .col-md-8.mx-auto.text-center
-        h2.display-4 #{headings.main}
-        p.lead #{headings.secondary}
+      .col-md-8.mx-auto.text-center.my-5
+        h2.display-4.mt-5.mb-4 #{headings.main}
+        p.lead.mb-4 #{headings.secondary}
         p Unizend's Node.js Localbitcoins API Client Library has been build to help you access to the localbitcoins API from your Node.js project.
         p It provides a series of methods that hopefully will ease your development with the Localbitcoins API using Node.js.
-        a.btn.btn-link.border-primary.btn-lg(href="/docs") Get Started
+        a.btn.btn-link.border-primary.btn-lg.mb-5(href="/docs") Get Started
   .row
-    .col-md-4
-      h3 About the project
-      ul.list-group.list-group-flush
+    .col-md-4.bg-dark.text-light.p-5
+      h3.text-center.mb-5 About the project
+      ul.list-group.list-group-flush.bg-light.text-dark.mb-4
         li.list-group-item #[b Package Name:] #{title}
         li.list-group-item #[b Version:] v-#{version}
-        li.list-group-item #[b Author:] #[a(href=author.url, title=author.name, tarhet="blank") #{author.name}]
-        li.list-group-item #[b See Contributors:] #[a(href="https://github.com/Rincorpes/unizend-localbtc/graphs/contributors") Contributors]
-        li.list-group-item #[b Post an issue:] #[a(href="https://github.com/Rincorpes/unizend-localbtc/issues") Issues]
-        li.list-group-item #[b License:] #[a(href=license.url) #{license.name}]
-      a.btn.btn-link.border-primary(href=repo.url) See at GitHub
+        li.list-group-item #[b Author:] #[a(href=author.url, title=author.name, target="blank") #{author.name}]
+        li.list-group-item #[b See Contributors:] #[a(href="https://github.com/Rincorpes/unizend-localbtc/graphs/contributors", target="blank") Contributors]
+        li.list-group-item #[b Post an issue:] #[a(href="https://github.com/Rincorpes/unizend-localbtc/issues", target="blank") Issues]
+        li.list-group-item #[b License:] #[a(href=license.url, target="blank") #{license.name}]
+      a.btn.btn-link.border-primary(href=repo.url, target="blank") See at GitHub
 
-    .col-md-4
-      h3 Installation
+    .col-md-4.bg-dark.text-light.p-5
+      h3.text-center.mb-5 Installation
       p As simple as going to your project folder and typing the following line on your command prompt.
-      pre npm i --save unizend-localbtc
-      a.btn.btn-link.border-primary(href="/docs") Read installation docs
+      pre.text-light npm i --save unizend-localbtc
+      a.btn.btn-link.border-primary.disabled(href="/docs") Read installation docs
 
-    .col-md-4
-      h3 Contributing
+    .col-md-4.bg-dark.text-light.p-5
+      h3.text-center.mb-5 Contributing
       p Crypto needs adoption and the goal of this tool is to help other developers build faster! If you find any bugs / issues or have suggestions, please consider collaborating. #[b It would be greatly appreciated].
-      p Remember this project has a #[a(href="https://github.com/Rincorpes/unizend-localbtc/blob/master/CODE-OF-CONDUCT.md") code of conduct]. We hope everyone taking part of this project, agree with our code of conduct. Read it to know what we exxpect from the contributors.
-      a.btn.btn-link.border-primary(href="https://github.com/Rincorpes/unizend-localbtc/blob/master/CONTRIBUTING.md") See at GitHub
+      p Remember this project has a #[a(href="https://github.com/Rincorpes/unizend-localbtc/blob/master/CODE-OF-CONDUCT.md", target="blank") code of conduct]. We hope everyone taking part of this project, agree with our code of conduct. Read it to know what we exxpect from the contributors.
+      a.btn.btn-link.border-primary(href="https://github.com/Rincorpes/unizend-localbtc/blob/master/CONTRIBUTING.md", target="blank") See at GitHub
 
   .container
     .row
-      .col-md-6.mx-auto.text-center
-        h3 Acknowledgements
+      .col-md-6.mx-auto.text-center.my-5
+        h3.h1.mb-5 Acknowledgements
         .row
           .col-md-6
             a(href="https://unizend.com", title="Unizend", target="_blank")

@@ -18,8 +18,8 @@ html(lang="en")
     link(rel='stylesheet', href='/stylesheets/style.min.css')
   body
     header
-      nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-        .container
+      nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.py-3
+        .container-fluid
           a.navbar-brand(href="/", title=title)
             h1.h5.mb-0 #{title}
           button.navbar-toggler(type="button", data-toggle="collapse", data-target="#mainNavbar", aria-controls="mainNavbar", aria-expanded="false", aria-label="Toggle Navigation")
@@ -27,9 +27,9 @@ html(lang="en")
           #mainNavbar.collapse.navbar-collapse
             ul.navbar-nav
               li.nav-item
-                a.nav-link(href="/docs", title="unizend-localbtc documentation") Documentation
+                a.nav-link.disabled(href="/docs", title="unizend-localbtc documentation") Documentation
               li.nav-item
-                a.nav-link(href="/examples", title="unizend-localbtc examples") Examples
+                a.nav-link.disabled(href="/examples", title="unizend-localbtc examples") Examples
             ul.navbar-nav.ml-auto
               li.nav-item
                 a.nav-link(href=repo.url, title=repo.title, target="_blank")
@@ -43,15 +43,15 @@ html(lang="en")
 
     footer.border-top
       .container
-        ul.nav
+        ul.nav.mb-3
           li.nav-item
             a.nav-link(href=repo.url, title=repo.title, target="_blank").
               Github
           li.nav-item
             a.nav-link(href=package.url, title=package.title, target="_blank").
               Npnjs
-        p Developed by the #[a(href="https://unizend.com", title="Unizend Website", target="_blank") Unizend Team.]
-        p Currently v#{version}. Code licensed #[a(href=license.url, title=license.name, target="blank") license.name.]
+        p Developed by #[a(href="https://unizend.com", title="Unizend Website", target="_blank") The Unizend Team.]
+        p Currently v#{version}. Code licensed #[a(href=license.url, title=license.name, target="blank") #{license.name}.]
 
     script(src="https://code.jquery.com/jquery-3.4.1.min.js", integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/esm/popper.min.js", integrity="sha256-3Iu0zFU6cPS92RSC3Pe4DBwjIV/9XKyzYTqKZzly6A8=", crossorigin="anonymous")
