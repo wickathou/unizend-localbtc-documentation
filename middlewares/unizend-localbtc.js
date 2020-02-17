@@ -2,7 +2,7 @@ const unizendLocalbtcPJson = require('unizend-localbtc/package.json')
 
 const unizendLocalbtc = {}
 
-unizendLocalbtc.setData = (req, res, next) => {
+unizendLocalbtc.getData = (req, res, next) => {
     console.log('Setting unizend-localbtc data into the express object')
     console.log(unizendLocalbtcPJson)
 

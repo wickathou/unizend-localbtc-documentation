@@ -1,13 +1,17 @@
 var express = require('express')
 var router = express.Router()
 
-const unizendLocalbtcData = require('../middlewares/unizend-localbtc')
+const unizendLocalbtc = require('../middlewares/unizend-localbtc')
 
-// console.log(unizendLocalbtcData)
+// console.log(unizendLocalbtc)
 
-/* GET home page. */
-router.get('/', unizendLocalbtcData.setData, (req, res) => {
-  res.render('index', req.unizendLocalbtcData)
+/**
+ * GET home page.
+ * 
+ * @uses unizendLocalbtc.getData
+ */
+router.get('/', unizendLocalbtc.getData, (req, res) => {
+  res.render('index', req.unizendLocalbtc)
 })
 
 module.exports = router
