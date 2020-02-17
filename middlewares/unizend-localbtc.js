@@ -4,6 +4,9 @@ const unizendLocalbtc = {}
 
 unizendLocalbtc.setData = (req, res, next) => {
     console.log('Setting unizend-localbtc data into the express object')
+    console.log(unizendLocalbtcPJson)
+
+    let baseUrl = unizendLocalbtcPJson.author.url + unizendLocalbtcPJson._location
 
     data = {
         title: unizendLocalbtcPJson.name,
@@ -25,9 +28,12 @@ unizendLocalbtc.setData = (req, res, next) => {
         version: unizendLocalbtcPJson.version,
         license: {
             name: unizendLocalbtcPJson.license,
-            url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
+            url: baseUrl + '/blob/master/LICENSE'
         },
-        issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
+        issuesUrl: baseUrl + '/issues',
+        contributorsUrl: baseUrl + '/graphs/contributors',
+        codeOfConductUrl: baseUrl + '/blob/master/CODE-OF-CONDUCT.md',
+        contributingUrl: baseUrl + '/blob/master/CONTRIBUTING.md'
     }
 
     req.unizendLocalbtcData = data

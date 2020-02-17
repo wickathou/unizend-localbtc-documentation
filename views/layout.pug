@@ -1,3 +1,4 @@
+
 doctype html
 html(lang="en")
   head
@@ -27,7 +28,7 @@ html(lang="en")
       gtag('config', 'UA-157716309-1');
 
   body
-    header
+    header.sticky-top
       nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.py-3
         .container-fluid
           a.navbar-brand(href="/", title=title)
@@ -37,31 +38,34 @@ html(lang="en")
           #mainNavbar.collapse.navbar-collapse
             ul.navbar-nav
               li.nav-item
-                a.nav-link(href="/docs", title="unizend-localbtc documentation") Documentation
+                a.nav-link(href="/docs") Documentation
               li.nav-item
-                a.nav-link.disabled(href="/examples", title="unizend-localbtc examples") Examples
+                a.nav-link.disabled(href="/examples") Examples
             ul.navbar-nav.ml-auto
               li.nav-item
                 a.nav-link(href=repo.url, title=repo.title, target="_blank")
-                  i.fab.fa-github
+                  i.fab.fa-github.fa-lg
               li.nav-item
                 a.nav-link(href=package.url, title=package.title, target="_blank")
-                  i.fab.fa-npm
+                  i.fab.fa-npm.fa-lg
 
     main
       block content
 
     footer.border-top
       .container
-        ul.nav.mb-3
-          li.nav-item
-            a.nav-link(href=repo.url, title=repo.title, target="_blank").
-              Github
-          li.nav-item
-            a.nav-link(href=package.url, title=package.title, target="_blank").
-              Npnjs
-        p Developed by #[a(href="https://unizend.com", title="Unizend Website", target="_blank") The Unizend Team.]
-        p Currently v#{version}. Code licensed #[a(href=license.url, title=license.name, target="blank") #{license.name}.]
+        .row
+          .col-md-6
+            ul.nav.mb-3
+              li.nav-item
+                a.nav-link(href=repo.url, title=repo.title, target="_blank").
+                  Github
+              li.nav-item
+                a.nav-link(href=package.url, title=package.title, target="_blank").
+                  Npnjs
+          .col-md-6.text-right
+            p Developed by #[a(href=author.url, target="_blank") #{author.name}] and #[a(href="https://unizend.com", target="_blank") The Unizend Team.]
+            p Currently v#{version}. Code licensed under #[a(href=license.url, target="blank") #{license.name}.]
 
     script(src="https://code.jquery.com/jquery-3.4.1.min.js", integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/esm/popper.min.js", integrity="sha256-3Iu0zFU6cPS92RSC3Pe4DBwjIV/9XKyzYTqKZzly6A8=", crossorigin="anonymous")

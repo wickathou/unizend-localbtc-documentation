@@ -17,8 +17,8 @@ block content
         li.list-group-item #[b Package Name:] #{title}
         li.list-group-item #[b Version:] v-#{version}
         li.list-group-item #[b Author:] #[a(href=author.url, title=author.name, target="blank") #{author.name}]
-        li.list-group-item #[b See Contributors:] #[a(href="https://github.com/Rincorpes/unizend-localbtc/graphs/contributors", target="blank") Contributors]
-        li.list-group-item #[b Post an issue:] #[a(href="https://github.com/Rincorpes/unizend-localbtc/issues", target="blank") Issues]
+        li.list-group-item #[b See Contributors:] #[a(href=contributorsUrl, target="blank") Contributors]
+        li.list-group-item #[b Post an issue:] #[a(href=issuesUrl, target="blank") Issues]
         li.list-group-item #[b License:] #[a(href=license.url, target="blank") #{license.name}]
       a.btn.btn-link.border-primary(href=repo.url, target="blank") See at GitHub
 
@@ -30,9 +30,9 @@ block content
 
     .col-md-4.bg-dark.text-light.p-5
       h3.text-center.mb-5 Contributing
-      p Crypto needs adoption and the goal of this tool is to help other developers build faster! If you find any bugs / issues or have suggestions, please consider collaborating. #[b It would be greatly appreciated].
-      p Remember this project has a #[a(href="https://github.com/Rincorpes/unizend-localbtc/blob/master/CODE-OF-CONDUCT.md", target="blank") code of conduct]. We hope everyone taking part of this project, agree with our code of conduct. Read it to know what we exxpect from the contributors.
-      a.btn.btn-link.border-primary(href="https://github.com/Rincorpes/unizend-localbtc/blob/master/CONTRIBUTING.md", target="blank") See at GitHub
+      p Crypto needs adoption and the goal of this tool is to help other developers build faster! If you find any #[a(href=issuesUrl, target="_blank") bugs / issues] or have suggestions, please consider collaborating. #[b It would be greatly appreciated].
+      p Remember this project has a #[a(href=codeOfConductUrl, target="blank") code of conduct]. We hope everyone taking part of this project, agree with our code of conduct. Read it to know what we exxpect from the contributors.
+      a.btn.btn-link.border-primary(href=contributingUrl, target="blank") See at GitHub
 
   .container
     .row
