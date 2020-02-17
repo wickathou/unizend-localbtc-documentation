@@ -13,3 +13,10 @@ $theme-colors: (
 );
 
 @import '../node_modules/bootstrap/scss/bootstrap';
+
+.back-to-top {
+	@extend .position-fixed, .btn, .btn-light, .btn-lg;
+	right: 25px;
+	bottom: 25px;
+	display: none;
+}
