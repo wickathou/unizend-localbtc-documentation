@@ -4,7 +4,9 @@ const unizendLocalbtc = {}
 
 unizendLocalbtc.getData = (req, res, next) => {
     console.log('Setting unizend-localbtc data into the express object')
-    console.log(unizendLocalbtcPJson)
+    // console.log(unizendLocalbtcPJson)
+
+    req.data = {}
 
     let baseUrl = unizendLocalbtcPJson.author.url + unizendLocalbtcPJson._location
 
@@ -21,10 +23,6 @@ unizendLocalbtc.getData = (req, res, next) => {
             title: unizendLocalbtcPJson.name + ' GitHub Repository',
             url: unizendLocalbtcPJson.homepage
         },
-        headings: {
-            main: 'Unizend LocalBTC Documentation',
-            secondary: unizendLocalbtcPJson.description
-        },
         version: unizendLocalbtcPJson.version,
         license: {
             name: unizendLocalbtcPJson.license,
@@ -36,7 +34,7 @@ unizendLocalbtc.getData = (req, res, next) => {
         contributingUrl: baseUrl + '/blob/master/CONTRIBUTING.md'
     }
 
-    req.unizendLocalbtcData = data
+    req.data.unizendLocalbtc = data
 
     next()
 }

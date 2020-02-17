@@ -6,11 +6,11 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
 
-    title= title
+    title= page.title
 
-    meta(name="description", content=description)
-    meta(name="keywords", content=keywords)
-    meta(name="author", content=author.name + ' <' + author.url + '>')
+    meta(name="description", content=unizendLocalbtc.description)
+    meta(name="keywords", content=unizendLocalbtc.keywords)
+    meta(name="author", content=unizendLocalbtc.author.name + ' <' + unizendLocalbtc.author.url + '>')
     meta(name="robots", content="index, follow")
 
     link(rel="shortcut icon", href="/images/favicon-unizend.png" type="image/x-icon")
@@ -31,22 +31,24 @@ html(lang="en")
     header.sticky-top
       nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.py-3
         .container-fluid
-          a.navbar-brand(href="/", title=title)
-            h1.h5.mb-0 #{title}
+          a.navbar-brand(href="/", title=page.title)
+            h1.h5.mb-0 #{page.brand}
           button.navbar-toggler(type="button", data-toggle="collapse", data-target="#mainNavbar", aria-controls="mainNavbar", aria-expanded="false", aria-label="Toggle Navigation")
             span.navbar-toggler-icon
           #mainNavbar.collapse.navbar-collapse
             ul.navbar-nav
               li.nav-item
-                a.nav-link(href="/docs") Documentation
+                a.nav-link(href="/", class=page.activeLinks.page == "home" ? "active" : "") Home
+              li.nav-item
+                a.nav-link(href="/docs", class=page.activeLinks.page == "docs" ? "active" : "") Documentation
               li.nav-item
                 a.nav-link.disabled(href="/examples") Examples
             ul.navbar-nav.ml-auto
               li.nav-item
-                a.nav-link(href=repo.url, title=repo.title, target="_blank")
+                a.nav-link(href=unizendLocalbtc.repo.url, title=unizendLocalbtc.repo.title, target="_blank")
                   i.fab.fa-github.fa-lg
               li.nav-item
-                a.nav-link(href=package.url, title=package.title, target="_blank")
+                a.nav-link(href=unizendLocalbtc.package.url, title=unizendLocalbtc.package.title, target="_blank")
                   i.fab.fa-npm.fa-lg
 
     main
@@ -58,14 +60,14 @@ html(lang="en")
           .col-md-6
             ul.nav.mb-3
               li.nav-item
-                a.nav-link(href=repo.url, title=repo.title, target="_blank").
+                a.nav-link(href=unizendLocalbtc.repo.url, title=unizendLocalbtc.repo.title, target="_blank").
                   Github
               li.nav-item
-                a.nav-link(href=package.url, title=package.title, target="_blank").
+                a.nav-link(href=unizendLocalbtc.package.url, title=unizendLocalbtc.package.title, target="_blank").
                   Npnjs
           .col-md-6.text-right
-            p Developed by #[a(href=author.url, target="_blank") #{author.name}] and #[a(href="https://unizend.com", target="_blank") The Unizend Team.]
-            p Currently v#{version}. Code licensed under #[a(href=license.url, target="blank") #{license.name}.]
+            p Developed by #[a(href=unizendLocalbtc.author.url, target="_blank") #{unizendLocalbtc.author.name}] and #[a(href="https://unizend.com", target="_blank") The Unizend Team.]
+            p Currently v#{version}. Code licensed under #[a(href=unizendLocalbtc.license.url, target="blank") #{unizendLocalbtc.license.name}.]
 
     a#backToTop.back-to-top(href="#", role="button")
       i.fas.fa-chevron-up

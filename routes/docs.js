@@ -23,11 +23,41 @@ router.get('/getting-started', (req, res) => {
  * @uses unizendLocalbtc.getData
  */
 router.get('/getting-started/introduction', unizendLocalbtc.getData, (req, res) => {
-  res.render('docs/getting-started-introduction', req.unizendLocalbtcData)
+  req.data.page = {
+    title: req.data.unizendLocalbtc.title + ' | Introduction',
+    brand: req.data.unizendLocalbtc.title,
+    headings: {
+      main: 'Unizend LocalBTC Documentation',
+      secondary: req.data.unizendLocalbtc.description
+    },
+    activeLinks: {
+      page: 'docs',
+      section: 'getting-started',
+      item: 'introduction'
+    }
+  }
+  res.render('docs/getting-started-introduction', req.data)
 })
-/* GET docs listing. */
+/**
+ * unizend-localbtc Installation docs
+ * 
+ * @uses unizendLocalbtc.getData
+ */
 router.get('/getting-started/installation', unizendLocalbtc.getData, (req, res, next) => {
-  res.render('docs/getting-started-installation', req.unizendLocalbtcData)
+  req.data.page = {
+    title: req.data.unizendLocalbtc.title + ' | Instalation',
+    brand: req.data.unizendLocalbtc.title,
+    headings: {
+      main: 'Unizend LocalBTC Documentation',
+      secondary: req.data.unizendLocalbtc.description
+    },
+    activeLinks: {
+      page: 'docs',
+      section: 'getting-started',
+      item: 'installation'
+    }
+  }
+  res.render('docs/getting-started-installation', req.data)
 })
 /* GET docs listing. */
 router.get('/getting-started/usage', unizendLocalbtc.getData, (req, res, next) => {
