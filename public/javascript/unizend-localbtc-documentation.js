@@ -19,4 +19,8 @@ $(document).ready(function() {
         $('body, html').animate({scrollTop: 0}, 400);
         return false;
     });
+
+    var url = window.location.pathname
+
+    console.log(url)
 });
