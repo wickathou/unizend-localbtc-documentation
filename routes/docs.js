@@ -1,321 +1,77 @@
 var express = require('express')
 var router = express.Router()
 
-const unizendLocalbtcPJson = require('unizend-localbtc/package.json')
+const unizendLocalbtc = require('../middlewares/unizend-localbtc')
 
-
-/* GET docs listing. */
-router.get('/', (req, res, next) => {
+/**
+ * Redirects from /docs to /docs/getting-started/introduction 
+ */
+router.get('/', (req, res) => {
   res.redirect('/docs/getting-started/introduction')
 })
-/* GET docs listing. */
-router.get('/getting-started', (req, res, next) => {
+
+/**
+ * Redirects from /docs/getting-started to /docs/getting-started/introduction
+ */
+router.get('/getting-started', (req, res) => {
   res.redirect('/docs/getting-started/introduction')
 })
-/* GET docs listing. */
-router.get('/getting-started/introduction', (req, res, next) => {
-  res.render('docs/getting-started-introduction', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+
+/**
+ * Docs home page
+ * 
+ * @uses unizendLocalbtc.getData
+ */
+router.get('/getting-started/introduction', unizendLocalbtc.getData, (req, res) => {
+  res.render('docs/getting-started-introduction', req.unizendLocalbtcData)
 })
 /* GET docs listing. */
-router.get('/getting-started/installation', (req, res, next) => {
-  res.render('docs/getting-started-installation', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+router.get('/getting-started/installation', unizendLocalbtc.getData, (req, res, next) => {
+  res.render('docs/getting-started-installation', req.unizendLocalbtcData)
 })
 /* GET docs listing. */
-router.get('/getting-started/usage', (req, res, next) => {
-  res.render('docs/getting-started-usage', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+router.get('/getting-started/usage', unizendLocalbtc.getData, (req, res, next) => {
+  res.render('docs/getting-started-usage', req.unizendLocalbtcData)
 })
 /* GET docs listing. */
-router.get('/api-reference', (req, res, next) => {
+router.get('/api-reference', unizendLocalbtc.getData, (req, res, next) => {
   res.redirect('/docs/api-reference/public-market-data')
 })
 /* GET docs listing. */
-router.get('/api-reference/public-market-data', (req, res, next) => {
-  res.render('docs/api-public-market-data', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+router.get('/api-reference/public-market-data', unizendLocalbtc.getData, (req, res, next) => {
+  res.render('docs/api-public-market-data', req.unizendLocalbtcData)
 })
 /* GET docs listing. */
-router.get('/api-reference/localbitcoins', (req, res, next) => {
-  res.render('docs/api-localbitcoins', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+router.get('/api-reference/localbitcoins', unizendLocalbtc.getData, (req, res, next) => {
+  res.render('docs/api-localbitcoins', req.unizendLocalbtcData)
 })
 /* GET docs listing. */
-router.get('/api-reference/ads', (req, res, next) => {
-  res.render('docs/api-ads', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+router.get('/api-reference/ads', unizendLocalbtc.getData, (req, res, next) => {
+  res.render('docs/api-ads', req.unizendLocalbtcData)
 })
 /* GET docs listing. */
-router.get('/api-reference/trades', (req, res, next) => {
-  res.render('docs/api-trades', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+router.get('/api-reference/trades', unizendLocalbtc.getData, (req, res, next) => {
+  res.render('docs/api-trades', req.unizendLocalbtcData)
 })
 /* GET docs listing. */
-router.get('/api-reference/account', (req, res, next) => {
-  res.render('docs/api-account', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+router.get('/api-reference/account', unizendLocalbtc.getData, (req, res, next) => {
+  res.render('docs/api-account', req.unizendLocalbtcData)
 })
 /* GET docs listing. */
-router.get('/api-reference/wallet', (req, res, next) => {
-  res.render('docs/api-wallet', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+router.get('/api-reference/wallet', unizendLocalbtc.getData, (req, res, next) => {
+  res.render('docs/api-wallet', req.unizendLocalbtcData)
 })
 /* GET docs listing. */
-router.get('/about', (req, res, next) => {
+router.get('/about', unizendLocalbtc.getData, (req, res, next) => {
   res.redirect('/docs/about/overview')
 })
 /* GET docs listing. */
-router.get('/about/overview', (req, res, next) => {
-  res.render('docs/about-overview', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+router.get('/about/overview', unizendLocalbtc.getData, (req, res, next) => {
+  res.render('docs/about-overview', req.unizendLocalbtcData)
 })
 /* GET docs listing. */
-router.get('/about/team', (req, res, next) => {
-  res.render('docs/about-team', {
-    title: unizendLocalbtcPJson.name,
-    description: unizendLocalbtcPJson.description,
-    keywords: unizendLocalbtcPJson.keywords.toString(),
-    author: unizendLocalbtcPJson.author,
-    package: {
-      title: unizendLocalbtcPJson.name + ' npm Package',
-      url: 'https://npmjs.com/package' + unizendLocalbtcPJson._location
-    },
-    repo: {
-      title: unizendLocalbtcPJson.name + ' GitHub Repository',
-      url: unizendLocalbtcPJson.homepage
-    },
-    headings: {
-      main: 'Unizend LocalBTC Documentation',
-      secondary: unizendLocalbtcPJson.description
-    },
-    version: unizendLocalbtcPJson.version,
-    license: {
-      name: unizendLocalbtcPJson.license,
-      url: 'https://github.com/Rincorpes/unizend-localbtc/blob/master/LICENSE'
-    },
-    issuesUrl: 'https://github.com/rincorpes/unizend-localbtc/issues'
-  })
+router.get('/about/team', unizendLocalbtc.getData, (req, res, next) => {
+  res.render('docs/about-team', req.unizendLocalbtcData)
 })
 
 module.exports = router
